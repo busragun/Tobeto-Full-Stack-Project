@@ -98,6 +98,23 @@ CREATE TABLE IF NOT EXISTS `depo`.`gpu` (
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
+
+CREATE TABLE IF NOT EXISTS `depo`.`case` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NOT NULL,
+  `type` VARCHAR(50) NOT NULL,
+  `psu` TINYINT NOT NULL, -- PSU'nun türünü belirlemek için TINYINT kullanıyorum.
+  `psu_location` VARCHAR(50) NOT NULL,
+  `transparent` TINYINT NOT NULL, -- Şeffaf olup olmadığını belirtmek için TINYINT kullanıyorum.
+  `psu_watt` INT NOT NULL, -- PSU'nun watt değerini INT olarak tanımlıyorum.
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC)
+) ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
 CREATE TABLE IF NOT EXISTS `depo`.`shelf` (
   `id` INT NOT NULL,
   `occupied_quantity` INT NOT NULL,
